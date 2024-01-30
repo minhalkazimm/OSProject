@@ -77,7 +77,7 @@ codespace
 
 Look at the TERMINAL tab. Run the following commands and provide the output here. 
 
-1. Run the command **pwd** . ***(1 mark)*** 
+1. Run the command **pwd** . ***(1 mark)*** </br>
 ```/workspaces/OSProject```
 
 2. Run the command **cat /etc/passwd** . ***(1 mark)*** 
@@ -92,8 +92,10 @@ Look at the TERMINAL tab. Run the following commands and provide the output here
 <img src="./images/du2.png" width="40%">
 
 5. Run the command **ls** . ***(1 mark)*** 
-```@minhalkazimm ➜ /workspaces/OSProject (main) $ ls```
-```README.md  images```
+```
+@minhalkazimm ➜ /workspaces/OSProject (main) $ ls
+README.md  images
+```
 
 6. Run the command **ls -asl** . ***(1 mark)*** 
 <img src="./images/ls-asl.png" width="40%">
