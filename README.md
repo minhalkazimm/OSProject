@@ -1,9 +1,7 @@
 # OSProject Running Containers for Application Development
 
 Group Name: jojo 
-
 Section: 1
-
 Team Mates:
 1. Minhal Kazim Bin Mohamad Mahizam 2122439
 
@@ -57,9 +55,12 @@ https://github.com/minhalkazimm/OSProject
 
 ***Questions:***
 
-1. What is default OS used to run the virtual environment for codespaces. ***(1 mark)*** __Fill answer here__.
-2. What are the two options of ram, disk and vcpu configuration you can have in running codespaces . ***(1 mark)*** __Fill answer here__.
-3. Why must we commit and sync our current work on source control? ***(1 mark)*** __Fill answer here__.
+1. What is default OS used to run the virtual environment for codespaces. ***(1 mark)*** 
+Linux
+2. What are the two options of ram, disk and vcpu configuration you can have in running codespaces . ***(1 mark)*** 
+8GB of RAM, 32GB of disk storage, 2 core processor
+3. Why must we commit and sync our current work on source control? ***(1 mark)*** 
+so that all the changes that been made are sync to the local repository
 
 ## Exploring the Terminal
 
@@ -76,23 +77,69 @@ codespace
 
 Look at the TERMINAL tab. Run the following commands and provide the output here. 
 
-1. Run the command **pwd** . ***(1 mark)*** __Fill answer here__.
-2. Run the command **cat /etc/passwd** . ***(1 mark)*** __Fill answer here__.
-3. Run the command **df** . ***(1 mark)*** __Fill answer here__.
-4. Run the command **du** . ***(1 mark)*** __Fill answer here__.
-5. Run the command **ls** . ***(1 mark)*** __Fill answer here__.
-6. Run the command **ls -asl** . ***(1 mark)*** __Fill answer here__.
-7. Run the command **free -h** . ***(1 mark)*** __Fill answer here__.
-8. Run the command **cat /proc/cpuinfo** . ***(1 mark)*** __Fill answer here__.
-9. Run the command **top** and type **q** to quit. ***(1 mark)*** __Fill answer here__.
-10. Run the command **uname -a**. ***(1 mark)*** __Fill answer here__.
-11. What is the available free memory in the system. ***(1 mark)*** __Fill answer here__.
-12. What is the available disk space mounted on /workspace. ***(1 mark)*** __Fill answer here__.
-13. Name the version and hardware architecture of the linux Virtual environment. ***(1 mark)*** __Fill answer here__.
-14. What is the difference between **ls** vs **ls -asl**. ***(1 mark)*** __Fill answer here__.
-15. What is the TLB size of the Virtual CPU. ***(1 mark)*** __Fill answer here__.
-16. What is the CPU speed of the Virtual CPU. ***(1 mark)*** __Fill answer here__.
+1. Run the command **pwd** . ***(1 mark)*** 
+```/workspaces/OSProject```
+
+2. Run the command **cat /etc/passwd** . ***(1 mark)*** 
+<img src="./images/cat pswd.png" width="40%">
+
+3. Run the command **df** . ***(1 mark)*** 
+ <img src="./images/df.png" width="40%">
+
+
+4. Run the command **du** . ***(1 mark)*** 
+<img src="./images/du1.png" width="40%">
+<img src="./images/du2.png" width="40%">
+
+5. Run the command **ls** . ***(1 mark)*** 
+```@minhalkazimm ➜ /workspaces/OSProject (main) $ ls```
+```README.md  images```
+
+6. Run the command **ls -asl** . ***(1 mark)*** 
+<img src="./images/ls-asl.png" width="40%">
+
+7. Run the command **free -h** . ***(1 mark)*** 
+<img src="./images/free-h.png" width="40%">
+
+8. Run the command **cat /proc/cpuinfo** . ***(1 mark)*** 
+<img src="./images/cpuinfo1.png" width="40%">
+<img src="./images/cpuinfo2.png" width="40%">
+
+9. Run the command **top** and type **q** to quit. ***(1 mark)***
+<img src="./images/top.png" width="40%">
+
+10. Run the command **uname -a**. ***(1 mark)*** 
+```@minhalkazimm ➜ /workspaces/OSProject (main) $ uname -a
+Linux codespaces-70c276 6.2.0-1018-azure #18~22.04.1-Ubuntu SMP Tue Nov 21 19:25:02 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+```
+11. What is the available free memory in the system. ***(1 mark)***
+    5.3 Gb
+12. What is the available disk space mounted on /workspace. ***(1 mark)*** 
+```@minhalkazimm ➜ /workspaces/OSProject (main) $ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          32G   14G   17G  44% /
+tmpfs            64M     0   64M   0% /dev
+shm              64M  8.0K   64M   1% /dev/shm
+/dev/root        29G   23G  6.9G  77% /vscode
+/dev/loop3       32G   14G   17G  44% /workspaces
+/dev/sda1        44G  1.3M   42G   1% /tmp 
+```
+13. Name the version and hardware architecture of the linux Virtual environment. ***(1 mark)***
+<img src="./images/uname.png" width="40%">
+
+14. What is the difference between **ls** vs **ls -asl**. ***(1 mark)*** 
+ls are to print the current directory content while ls -asl provide the directory and their input
+
+15. What is the TLB size of the Virtual CPU. ***(1 mark)*** 
+2560 4K Pages
+<img src="./images/cpuinfo2.png" width="40%">
+
+16. What is the CPU speed of the Virtual CPU. ***(1 mark)*** 
+3041.238 MHz
+<img src="./images/du2.png" width="40%">
+
 17. What is the top running process that consumes the most CPU cycles. ***(1 mark)*** __Fill answer here__.
+<img src="./images/topcpu.png" width="40%">
 
 ## Running your own container instance.
 
@@ -152,8 +199,13 @@ f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago 
 
 ***Questions:***
 
-1. Are files in the container persistent. Why not?. ***(1 mark)*** __Fill answer here__.
-2. Can we run two, or three instances of debian linux? . ***(1 mark)*** __Fill answer here__.
+1. Are files in the container persistent. Why not?. ***(1 mark)*** 
+No, files within the deleted container are not persistent, It is because there are layers in a container. There are image layers which
+are read-only and contain the base filesystem for the container and writable layer where changes made within a running container are stored.
+Once the container is deleted, the writable layer is discarded, along with any modifications made within it.
+
+2. Can we run two, or three instances of debian linux? . ***(1 mark)*** 
+Yes, by using virtual machine, containers and Multiple Sessions
 
 ## Running your own container with persistent storage
 
